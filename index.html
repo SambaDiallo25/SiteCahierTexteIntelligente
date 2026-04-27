@@ -1,9 +1,435 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>CahierSmart — Système de Gestion Intelligent</title>
+    <meta
+      name="description"
+      content="Gérez vos cahiers de texte numériques avec intelligence. Automatisez le suivi des cours pour enseignants et étudiants."
+    />
+
+    <!-- Icônes et favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>"
+    />
+
+    <!-- Feuille de style principale -->
+    <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body></body>
+  <body>
+    <!-- =============================================
+       BARRE DE NAVIGATION
+       La navbar est fixe en haut de la page
+  ============================================= -->
+    <nav class="navbar">
+      <div class="conteneur navbar-contenu">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <div class="logo-icone">📚</div>
+          <span class="logo-texte">Cahier<span>Smart</span></span>
+        </a>
+
+        <!-- Liens de navigation (cachés sur mobile) -->
+        <ul class="nav-liens" id="nav-liens">
+          <li><a href="index.html">🏠 Accueil</a></li>
+          <li><a href="about.html">ℹ️ À propos</a></li>
+          <li><a href="features.html">⚙️ Fonctionnalités</a></li>
+          <li><a href="contact.html">📞 Contact</a></li>
+        </ul>
+
+        <!-- Bouton burger (visible sur mobile seulement) -->
+        <button
+          class="burger"
+          id="burger"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- =============================================
+       SECTION HERO — L'introduction principale
+  ============================================= -->
+    <section class="hero">
+      <div class="conteneur">
+        <div class="hero-contenu">
+          <!-- Texte principal à gauche -->
+          <div class="hero-texte">
+            <div class="badge">✨ Nouvelle génération éducative</div>
+
+            <h1>
+              Gérez vos cours<br />
+              avec <span>Intelligence</span><br />
+              et Simplicité
+            </h1>
+
+            <p>
+              CahierSmart transforme la gestion des cahiers de texte en une
+              expérience fluide et intelligente. Automatisez le suivi des cours,
+              organisez vos leçons et améliorez la communication entre
+              enseignants et étudiants.
+            </p>
+
+            <!-- Boutons d'action -->
+            <div class="hero-boutons">
+              <a href="features.html" class="btn-principal">
+                🚀 Découvrir les fonctionnalités
+              </a>
+              <a href="about.html" class="btn-secondaire"> En savoir plus </a>
+            </div>
+
+            <!-- Petites statistiques -->
+            <div class="hero-stats">
+              <div class="stat-item">
+                <strong>2 500+</strong>
+                <span>Enseignants actifs</span>
+              </div>
+              <div class="stat-item">
+                <strong>98%</strong>
+                <span>Satisfaction</span>
+              </div>
+              <div class="stat-item">
+                <strong>15 min</strong>
+                <span>Économisées / jour</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Illustration (mockup de l'application) à droite -->
+          <div class="hero-visuel">
+            <div class="mockup-app">
+              <!-- Barre de titre (style macOS) -->
+              <div class="mockup-entete">
+                <div class="mockup-point"></div>
+                <div class="mockup-point"></div>
+                <div class="mockup-point"></div>
+                <span class="mockup-titre">📚 Mes Cours du Jour</span>
+              </div>
+
+              <!-- Liste des cours simulés -->
+              <div class="cours-item">
+                <div class="cours-icone" style="background: #eff6ff">➕</div>
+                <div class="cours-info">
+                  <strong>Mathématiques — Lycée</strong>
+                  <small>Mme Diallo · Salle B12 · 08h00</small>
+                </div>
+                <span class="cours-statut statut-fait">✓ Fait</span>
+              </div>
+
+              <div class="cours-item">
+                <div class="cours-icone" style="background: #f5f3ff">🧪</div>
+                <div class="cours-info">
+                  <strong>Sciences Physiques</strong>
+                  <small>M. Sow · Labo 02 · 10h00</small>
+                </div>
+                <span class="cours-statut statut-cours">▶ En cours</span>
+              </div>
+
+              <div class="cours-item">
+                <div class="cours-icone" style="background: #f0fdf4">📖</div>
+                <div class="cours-info">
+                  <strong>Littérature française</strong>
+                  <small>Mme Ndiaye · Salle A05 · 14h00</small>
+                </div>
+                <span class="cours-statut statut-attente">⏳ À venir</span>
+              </div>
+
+              <div class="cours-item">
+                <div class="cours-icone" style="background: #fff7ed">🌍</div>
+                <div class="cours-info">
+                  <strong>Histoire-Géographie</strong>
+                  <small>M. Ba · Salle C08 · 16h00</small>
+                </div>
+                <span class="cours-statut statut-attente">⏳ À venir</span>
+              </div>
+
+              <!-- Suggestion IA -->
+              <div class="badge-ia">
+                🤖 IA · 3 devoirs à rendre cette semaine
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       SECTION PRÉSENTATION RAPIDE
+  ============================================= -->
+    <section class="presentation">
+      <div class="conteneur">
+        <div class="presentation-grille">
+          <!-- Texte explicatif -->
+          <div class="presentation-texte animer">
+            <div class="badge">🎯 Notre mission</div>
+            <h2>
+              Pourquoi CahierSmart<br /><span
+                style="color: var(--couleur-primaire)"
+                >change tout</span
+              >
+              ?
+            </h2>
+            <p>
+              Dans un monde éducatif de plus en plus exigeant, la gestion
+              administrative prend un temps précieux sur l'enseignement.
+              CahierSmart automatise les tâches répétitives pour que vous
+              puissiez vous concentrer sur ce qui compte vraiment.
+            </p>
+            <p>
+              Notre intelligence artificielle analyse vos habitudes, suggère des
+              améliorations et vous aide à anticiper les besoins de vos élèves
+              avant même qu'ils se manifestent.
+            </p>
+
+            <!-- Points forts avec icônes de check -->
+            <ul class="liste-atouts">
+              <li>Organisation automatique des cours et leçons</li>
+              <li>Suivi en temps réel de la progression des élèves</li>
+              <li>Notifications intelligentes pour les devoirs</li>
+              <li>Rapports hebdomadaires générés automatiquement</li>
+              <li>Compatible avec tous les niveaux scolaires</li>
+            </ul>
+
+            <a href="features.html" class="btn-principal"
+              >Voir toutes les fonctionnalités →</a
+            >
+          </div>
+
+          <!-- Statistiques visuelles -->
+          <div class="stats-visuelles animer">
+            <div class="stat-carte">
+              <div class="chiffre" data-compteur="2500" data-suffixe="+">
+                0+
+              </div>
+              <div class="label">Enseignants utilisateurs</div>
+            </div>
+            <div class="stat-carte">
+              <div class="chiffre" data-compteur="45000" data-suffixe="+">
+                0+
+              </div>
+              <div class="label">Élèves suivis</div>
+            </div>
+            <div class="stat-carte">
+              <div class="chiffre" data-compteur="98" data-suffixe="%">0%</div>
+              <div class="label">Taux de satisfaction</div>
+            </div>
+            <div class="stat-carte">
+              <div class="chiffre" data-compteur="15" data-suffixe=" min">
+                0 min
+              </div>
+              <div class="label">Économisées par jour</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       SECTION AVANTAGES — Cartes des bénéfices
+  ============================================= -->
+    <section class="avantages">
+      <div class="conteneur">
+        <div class="entete-section">
+          <div class="badge">💡 Les avantages</div>
+          <h2 class="titre-section">
+            Tout ce dont vous avez<br /><span>besoin en un seul outil</span>
+          </h2>
+          <p class="sous-titre-section">
+            Des fonctionnalités pensées par et pour les acteurs de l'éducation.
+          </p>
+        </div>
+
+        <div class="avantages-grille">
+          <!-- Carte 1 -->
+          <div class="carte-avantage animer">
+            <div class="avantage-icone">⏱️</div>
+            <h3>Gain de temps réel</h3>
+            <p>
+              Automatisez la saisie et l'organisation des cours. Passez moins de
+              temps sur la paperasse et plus avec vos élèves.
+            </p>
+          </div>
+
+          <!-- Carte 2 -->
+          <div class="carte-avantage animer">
+            <div class="avantage-icone">🤖</div>
+            <h3>Assistance intelligente</h3>
+            <p>
+              Notre IA analyse les patterns de vos cours et propose des
+              suggestions personnalisées pour améliorer votre organisation.
+            </p>
+          </div>
+
+          <!-- Carte 3 -->
+          <div class="carte-avantage animer">
+            <div class="avantage-icone">📊</div>
+            <h3>Suivi précis</h3>
+            <p>
+              Visualisez la progression de chaque élève avec des tableaux de
+              bord clairs et des rapports automatiques détaillés.
+            </p>
+          </div>
+
+          <!-- Carte 4 -->
+          <div class="carte-avantage animer">
+            <div class="avantage-icone">🔔</div>
+            <h3>Notifications proactives</h3>
+            <p>
+              Recevez des alertes intelligentes pour les devoirs à venir, les
+              absences répétées ou les retards dans le programme.
+            </p>
+          </div>
+
+          <!-- Carte 5 -->
+          <div class="carte-avantage animer">
+            <div class="avantage-icone">📱</div>
+            <h3>Accessible partout</h3>
+            <p>
+              Interface responsive qui fonctionne parfaitement sur ordinateur,
+              tablette et smartphone. Vos données toujours à portée de main.
+            </p>
+          </div>
+
+          <!-- Carte 6 -->
+          <div class="carte-avantage animer">
+            <div class="avantage-icone">🔒</div>
+            <h3>Sécurisé et privé</h3>
+            <p>
+              Vos données et celles de vos élèves sont protégées. Conformité
+              totale avec les réglementations sur la protection des données.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       CALL TO ACTION (CTA)
+  ============================================= -->
+    <section
+      style="
+        background: var(--couleur-degrade);
+        padding: 80px 0;
+        text-align: center;
+      "
+    >
+      <div class="conteneur">
+        <h2
+          style="
+            font-family: var(--police-titre);
+            font-size: 2.2rem;
+            color: white;
+            font-weight: 800;
+            margin-bottom: 16px;
+          "
+        >
+          Prêt à transformer votre gestion de cours ?
+        </h2>
+        <p
+          style="
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.05rem;
+            margin-bottom: 36px;
+          "
+        >
+          Rejoignez 2 500 enseignants qui font confiance à CahierSmart.
+        </p>
+        <a
+          href="contact.html"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: var(--couleur-primaire);
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+          "
+        >
+          ✉️ Nous contacter maintenant
+        </a>
+      </div>
+    </section>
+
+    <!-- =============================================
+       FOOTER
+  ============================================= -->
+    <footer class="footer">
+      <div class="conteneur">
+        <div class="footer-grille">
+          <!-- Colonne marque -->
+          <div class="footer-marque">
+            <a href="index.html" class="footer-logo">
+              <div class="logo-icone">📚</div>
+              <span class="logo-texte">Cahier<span>Smart</span></span>
+            </a>
+            <p>
+              La plateforme intelligente de gestion des cahiers de texte
+              numériques pour les établissements scolaires modernes.
+            </p>
+          </div>
+
+          <!-- Colonne navigation -->
+          <div class="footer-colonne">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="features.html">Fonctionnalités</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Colonne fonctionnalités -->
+          <div class="footer-colonne">
+            <h4>Fonctionnalités</h4>
+            <ul>
+              <li><a href="features.html">Gestion des cours</a></li>
+              <li><a href="features.html">Suivi des devoirs</a></li>
+              <li><a href="features.html">Notifications IA</a></li>
+              <li><a href="features.html">Tableau de bord</a></li>
+            </ul>
+          </div>
+
+          <!-- Colonne contact -->
+          <div class="footer-colonne">
+            <h4>Contact</h4>
+            <ul>
+              <li>
+                <a href="mailto:contact@cahiersmart.edu"
+                  >✉️ contact@cahiersmart.edu</a
+                >
+              </li>
+              <li><a href="#">📞 +221 33 000 00 00</a></li>
+              <li><a href="#">📍 Dakar, Sénégal</a></li>
+              <li><a href="contact.html">Formulaire de contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bas du footer -->
+        <div class="footer-bas">
+          <span
+            >© 2024 <a href="index.html">CahierSmart</a>. Tous droits
+            réservés.</span
+          >
+          <span>Fait avec ❤️ pour l'éducation africaine</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lien vers le JavaScript -->
+    <script src="js/script.js"></script>
+  </body>
 </html>
