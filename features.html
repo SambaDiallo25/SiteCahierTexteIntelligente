@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fonctionnalités — CahierSmart</title>
+    <meta
+      name="description"
+      content="Découvrez toutes les fonctionnalités intelligentes de CahierSmart."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- BARRE DE NAVIGATION -->
+    <nav class="navbar">
+      <div class="conteneur navbar-contenu">
+        <a href="index.html" class="logo">
+          <div class="logo-icone">📚</div>
+          <span class="logo-texte">Cahier<span>Smart</span></span>
+        </a>
+        <ul class="nav-liens" id="nav-liens">
+          <li><a href="index.html">🏠 Accueil</a></li>
+          <li><a href="about.html">ℹ️ À propos</a></li>
+          <li><a href="features.html">⚙️ Fonctionnalités</a></li>
+          <li><a href="contact.html">📞 Contact</a></li>
+        </ul>
+        <button
+          class="burger"
+          id="burger"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- EN-TÊTE DE PAGE -->
+    <header class="page-entete">
+      <div class="conteneur">
+        <div class="fil-ariane">
+          <a href="index.html">Accueil</a>
+          <span>›</span>
+          <span>Fonctionnalités</span>
+        </div>
+        <div class="badge">⚙️ Tout ce qu'on offre</div>
+        <h1>
+          Des fonctionnalités
+          <span style="color: var(--couleur-primaire)">puissantes</span>
+        </h1>
+        <p>
+          Tout ce dont vous avez besoin pour gérer vos cours intelligemment, en
+          un seul endroit.
+        </p>
+      </div>
+    </header>
+
+    <!-- =============================================
+       SECTION FONCTIONNALITÉS AVEC FILTRES
+  ============================================= -->
+    <section style="padding: 100px 0; background: var(--couleur-blanc)">
+      <div class="conteneur">
+        <!-- Boutons de filtre par catégorie -->
+        <!-- JavaScript va écouter les clics sur ces boutons -->
+        <div class="filtres-fonctionnalites">
+          <button class="btn-filtre actif" data-filtre="tout">
+            🔍 Tout voir
+          </button>
+          <button class="btn-filtre" data-filtre="gestion">📋 Gestion</button>
+          <button class="btn-filtre" data-filtre="ia">
+            🤖 Intelligence IA
+          </button>
+          <button class="btn-filtre" data-filtre="communication">
+            💬 Communication
+          </button>
+          <button class="btn-filtre" data-filtre="analyse">📊 Analyse</button>
+        </div>
+
+        <!-- Grille des fonctionnalités -->
+        <!-- data-categorie sert au filtre JavaScript -->
+        <div class="fonctionnalites-grille">
+          <!-- CARTE VEDETTE (prend 2 colonnes) -->
+          <div
+            class="carte-fonctionnalite vedette animer"
+            data-categorie="gestion"
+          >
+            <div class="fonctionnalite-icone">📚</div>
+            <h3>Gestion complète des cours</h3>
+            <p>
+              Créez, modifiez et organisez tous vos cours en quelques secondes.
+              Ajoutez des leçons, des objectifs pédagogiques, des ressources
+              multimédia et des annotations. Notre interface intuitive vous
+              permet de gérer l'intégralité de votre programme scolaire sans
+              effort.
+            </p>
+            <span class="tag-categorie">📋 Gestion</span>
+          </div>
+
+          <!-- Carte normale -->
+          <div class="carte-fonctionnalite animer" data-categorie="ia">
+            <div class="fonctionnalite-icone">🤖</div>
+            <h3>Ajout automatique de leçons</h3>
+            <p>
+              L'IA analyse votre programme et suggère automatiquement la
+              structure des leçons suivantes. Plus besoin de partir d'une page
+              blanche !
+            </p>
+            <span class="tag-categorie">🤖 Intelligence IA</span>
+          </div>
+
+          <div
+            class="carte-fonctionnalite animer"
+            data-categorie="communication"
+          >
+            <div class="fonctionnalite-icone">🔔</div>
+            <h3>Notifications intelligentes</h3>
+            <p>
+              Recevez des alertes personnalisées pour les devoirs à venir, les
+              retards de saisie et les événements importants du calendrier
+              scolaire.
+            </p>
+            <span class="tag-categorie">💬 Communication</span>
+          </div>
+
+          <div class="carte-fonctionnalite animer" data-categorie="gestion">
+            <div class="fonctionnalite-icone">✅</div>
+            <h3>Suivi des devoirs</h3>
+            <p>
+              Centralisez tous les devoirs dans un tableau de bord unique.
+              Suivez les rendus, notez facilement et envoyez des rappels
+              automatiques aux élèves.
+            </p>
+            <span class="tag-categorie">📋 Gestion</span>
+          </div>
+
+          <div class="carte-fonctionnalite animer" data-categorie="analyse">
+            <div class="fonctionnalite-icone">📊</div>
+            <h3>Tableau de bord analytique</h3>
+            <p>
+              Visualisez la progression de vos élèves avec des graphiques
+              clairs. Identifiez les difficultés avant qu'elles deviennent des
+              problèmes.
+            </p>
+            <span class="tag-categorie">📊 Analyse</span>
+          </div>
+
+          <div class="carte-fonctionnalite animer" data-categorie="ia">
+            <div class="fonctionnalite-icone">💡</div>
+            <h3>Suggestions pédagogiques</h3>
+            <p>
+              L'IA vous propose des ressources, activités et exercices adaptés
+              au niveau de vos élèves basés sur leurs performances passées.
+            </p>
+            <span class="tag-categorie">🤖 Intelligence IA</span>
+          </div>
+
+          <div
+            class="carte-fonctionnalite animer"
+            data-categorie="communication"
+          >
+            <div class="fonctionnalite-icone">💬</div>
+            <h3>Messagerie intégrée</h3>
+            <p>
+              Communiquez directement avec vos élèves et leurs parents. Envoyez
+              des annonces, des rappels et des retours sur les travaux.
+            </p>
+            <span class="tag-categorie">💬 Communication</span>
+          </div>
+
+          <div class="carte-fonctionnalite animer" data-categorie="analyse">
+            <div class="fonctionnalite-icone">📈</div>
+            <h3>Rapports automatiques</h3>
+            <p>
+              Générez des rapports professionnels en un clic : bulletins, bilans
+              de fin de période, statistiques de classe et tendances annuelles.
+            </p>
+            <span class="tag-categorie">📊 Analyse</span>
+          </div>
+
+          <div class="carte-fonctionnalite animer" data-categorie="gestion">
+            <div class="fonctionnalite-icone">📅</div>
+            <h3>Calendrier pédagogique</h3>
+            <p>
+              Synchronisez votre planning avec le calendrier scolaire officiel.
+              Planifiez vos cours, contrôles et activités sur toute l'année.
+            </p>
+            <span class="tag-categorie">📋 Gestion</span>
+          </div>
+
+          <div class="carte-fonctionnalite animer" data-categorie="ia">
+            <div class="fonctionnalite-icone">🔮</div>
+            <h3>Prédiction des difficultés</h3>
+            <p>
+              L'IA détecte les élèves en difficulté avant que leurs notes ne
+              chutent et vous alerte pour intervenir au bon moment avec les bons
+              outils.
+            </p>
+            <span class="tag-categorie">🤖 Intelligence IA</span>
+          </div>
+
+          <div class="carte-fonctionnalite animer" data-categorie="gestion">
+            <div class="fonctionnalite-icone">📱</div>
+            <h3>Interface mobile</h3>
+            <p>
+              Accédez à toutes vos données depuis votre smartphone.
+              L'application est entièrement optimisée pour les petits écrans.
+            </p>
+            <span class="tag-categorie">📋 Gestion</span>
+          </div>
+
+          <div
+            class="carte-fonctionnalite animer"
+            data-categorie="communication"
+          >
+            <div class="fonctionnalite-icone">🔗</div>
+            <h3>Partage de ressources</h3>
+            <p>
+              Partagez vos cours, exercices et ressources pédagogiques avec vos
+              collègues. Collaborez et construisez une bibliothèque commune.
+            </p>
+            <span class="tag-categorie">💬 Communication</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       SECTION DÉMO INTERACTIVE (Onglets)
+       Permet de voir des exemples de chaque fonctionnalité
+  ============================================= -->
+    <section class="demo-interactive">
+      <div class="conteneur">
+        <div class="entete-section">
+          <div class="badge">🖥️ Démo interactive</div>
+          <h2 class="titre-section">
+            Voyez CahierSmart<br /><span>en action</span>
+          </h2>
+          <p class="sous-titre-section">
+            Explorez les différentes vues de l'application ci-dessous.
+          </p>
+        </div>
+
+        <div class="demo-tableau animer">
+          <!-- Onglets de navigation -->
+          <div class="demo-onglets">
+            <button class="onglet-btn actif" data-onglet="onglet-cours">
+              📚 Mes Cours
+            </button>
+            <button class="onglet-btn" data-onglet="onglet-devoirs">
+              ✅ Devoirs
+            </button>
+            <button class="onglet-btn" data-onglet="onglet-stats">
+              📊 Statistiques
+            </button>
+            <button class="onglet-btn" data-onglet="onglet-notifs">
+              🔔 Notifications
+            </button>
+          </div>
+
+          <!-- Contenu de l'onglet 1 : Mes Cours -->
+          <div class="contenu-onglet actif" id="onglet-cours">
+            <h4 style="margin-bottom: 16px; font-family: var(--police-titre)">
+              📅 Lundi 18 Novembre 2024
+            </h4>
+
+            <div class="demo-item">
+              <div class="demo-item-icone" style="background: #eff6ff">➕</div>
+              <div style="flex: 1">
+                <strong>Mathématiques — Terminale S</strong><br />
+                <small style="color: var(--couleur-texte-clair)"
+                  >Mme Diallo · Salle B12 · 08h00 - 10h00</small
+                >
+              </div>
+              <span class="cours-statut statut-fait">✓ Complété</span>
+            </div>
+
+            <div class="demo-item">
+              <div class="demo-item-icone" style="background: #f5f3ff">🧪</div>
+              <div style="flex: 1">
+                <strong>Sciences Physiques — 1ère S</strong><br />
+                <small style="color: var(--couleur-texte-clair)"
+                  >M. Sow · Labo 02 · 10h00 - 12h00</small
+                >
+              </div>
+              <span class="cours-statut statut-cours">▶ En cours</span>
+            </div>
+
+            <div class="demo-item">
+              <div class="demo-item-icone" style="background: #f0fdf4">📖</div>
+              <div style="flex: 1">
+                <strong>Littérature — Seconde B</strong><br />
+                <small style="color: var(--couleur-texte-clair)"
+                  >Mme Ndiaye · Salle A05 · 14h00 - 16h00</small
+                >
+              </div>
+              <span class="cours-statut statut-attente">⏳ À venir</span>
+            </div>
+
+            <div class="demo-item">
+              <div class="demo-item-icone" style="background: #fff7ed">🌍</div>
+              <div style="flex: 1">
+                <strong>Histoire-Géographie — 3ème</strong><br />
+                <small style="color: var(--couleur-texte-clair)"
+                  >M. Ba · Salle C08 · 16h00 - 17h00</small
+                >
+              </div>
+              <span class="cours-statut statut-attente">⏳ À venir</span>
+            </div>
+          </div>
+
+          <!-- Contenu de l'onglet 2 : Devoirs -->
+          <div class="contenu-onglet" id="onglet-devoirs">
+            <h4 style="margin-bottom: 16px; font-family: var(--police-titre)">
+              📋 Devoirs à corriger (4)
+            </h4>
+
+            <div class="demo-item">
+              <div class="demo-item-icone" style="background: #fee2e2">🔴</div>
+              <div style="flex: 1">
+                <strong>Exercices Maths — Terminale S</strong><br />
+                <small style="color: #ef4444; font-weight: 600"
+                  >⚠️ À rendre demain</small
+                >
+              </div>
+              <span style="font-size: 0.8rem; color: #ef4444; font-weight: 600"
+                >Urgent</span
+              >
+            </div>
+
+            <div class="demo-item">
+              <div class="demo-item-icone" style="background: #fef9c3">🟡</div>
+              <div style="flex: 1">
+                <strong>Dissertation Littérature — Seconde B</strong><br />
+                <small style="color: var(--couleur-texte-clair)"
+                  >Dans 3 jours</small
+                >
+              </div>
+              <span style="font-size: 0.8rem; color: #ca8a04; font-weight: 600"
+                >Bientôt</span
+              >
+            </div>
+
+            <div class="demo-item">
+              <div class="demo-item-icone" style="background: #dcfce7">🟢</div>
+              <div style="flex: 1">
+                <strong>TP Physique — 1ère S</strong><br />
+                <small style="color: var(--couleur-texte-clair)"
+                  >Dans 1 semaine</small
+                >
+              </div>
+              <span style="font-size: 0.8rem; color: #16a34a; font-weight: 600"
+                >OK</span
+              >
+            </div>
+
+            <div class="demo-item">
+              <div class="demo-item-icone" style="background: #dcfce7">🟢</div>
+              <div style="flex: 1">
+                <strong>Contrôle Histoire — 3ème</strong><br />
+                <small style="color: var(--couleur-texte-clair)"
+                  >Dans 2 semaines</small
+                >
+              </div>
+              <span style="font-size: 0.8rem; color: #16a34a; font-weight: 600"
+                >OK</span
+              >
+            </div>
+          </div>
+
+          <!-- Contenu de l'onglet 3 : Statistiques -->
+          <div class="contenu-onglet" id="onglet-stats">
+            <h4 style="margin-bottom: 16px; font-family: var(--police-titre)">
+              📊 Résumé de la semaine
+            </h4>
+
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+                margin-bottom: 16px;
+              "
+            >
+              <div
+                style="
+                  background: var(--couleur-degrade);
+                  color: white;
+                  padding: 20px;
+                  border-radius: 12px;
+                  text-align: center;
+                "
+              >
+                <div
+                  style="
+                    font-size: 1.8rem;
+                    font-weight: 800;
+                    font-family: var(--police-titre);
+                  "
+                >
+                  12
+                </div>
+                <div style="font-size: 0.8rem; opacity: 0.9">Cours donnés</div>
+              </div>
+              <div
+                style="
+                  background: #f0fdf4;
+                  padding: 20px;
+                  border-radius: 12px;
+                  text-align: center;
+                  border: 1px solid #bbf7d0;
+                "
+              >
+                <div
+                  style="
+                    font-size: 1.8rem;
+                    font-weight: 800;
+                    color: #16a34a;
+                    font-family: var(--police-titre);
+                  "
+                >
+                  87%
+                </div>
+                <div
+                  style="font-size: 0.8rem; color: var(--couleur-texte-clair)"
+                >
+                  Taux présence
+                </div>
+              </div>
+              <div
+                style="
+                  background: #eff6ff;
+                  padding: 20px;
+                  border-radius: 12px;
+                  text-align: center;
+                  border: 1px solid #bfdbfe;
+                "
+              >
+                <div
+                  style="
+                    font-size: 1.8rem;
+                    font-weight: 800;
+                    color: #2563eb;
+                    font-family: var(--police-titre);
+                  "
+                >
+                  14.2
+                </div>
+                <div
+                  style="font-size: 0.8rem; color: var(--couleur-texte-clair)"
+                >
+                  Moyenne classe
+                </div>
+              </div>
+            </div>
+
+            <div class="demo-item" style="background: #f5f3ff">
+              <span style="font-size: 1.2rem">🤖</span>
+              <div>
+                <strong>Suggestion IA</strong><br />
+                <small style="color: var(--couleur-texte-clair)"
+                  >3 élèves montrent des difficultés en algèbre. Planifiez une
+                  séance de révision.</small
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Contenu de l'onglet 4 : Notifications -->
+          <div class="contenu-onglet" id="onglet-notifs">
+            <h4 style="margin-bottom: 16px; font-family: var(--police-titre)">
+              🔔 Notifications récentes
+            </h4>
+
+            <div class="demo-item">
+              <div class="demo-item-icone" style="background: #fee2e2">⚠️</div>
+              <div style="flex: 1">
+                <strong>Devoir non rendu — Aminata Diallo</strong><br />
+                <small style="color: var(--couleur-texte-clair)"
+                  >Il y a 2 heures</small
+                >
+              </div>
+            </div>
+
+            <div class="demo-item">
+              <div class="demo-item-icone" style="background: #dcfce7">✅</div>
+              <div style="flex: 1">
+                <strong>Cahier de texte validé — Semaine 46</strong><br />
+                <small style="color: var(--couleur-texte-clair)"
+                  >Il y a 4 heures</small
+                >
+              </div>
+            </div>
+
+            <div class="demo-item">
+              <div class="demo-item-icone" style="background: #eff6ff">🤖</div>
+              <div style="flex: 1">
+                <strong>IA : Nouveau chapitre suggéré pour Terminale S</strong
+                ><br />
+                <small style="color: var(--couleur-texte-clair)"
+                  >Hier, 15h30</small
+                >
+              </div>
+            </div>
+
+            <div class="demo-item">
+              <div class="demo-item-icone" style="background: #fef9c3">📅</div>
+              <div style="flex: 1">
+                <strong>Rappel : Réunion pédagogique vendredi</strong><br />
+                <small style="color: var(--couleur-texte-clair)"
+                  >Hier, 09h00</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section
+      style="
+        background: var(--couleur-degrade);
+        padding: 80px 0;
+        text-align: center;
+      "
+    >
+      <div class="conteneur">
+        <h2
+          style="
+            font-family: var(--police-titre);
+            font-size: 2rem;
+            color: white;
+            font-weight: 800;
+            margin-bottom: 16px;
+          "
+        >
+          Convaincu ? Essayez CahierSmart dès aujourd'hui !
+        </h2>
+        <a
+          href="contact.html"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: var(--couleur-primaire);
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+          "
+        >
+          🚀 Démarrer maintenant
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="conteneur">
+        <div class="footer-grille">
+          <div class="footer-marque">
+            <a href="index.html" class="footer-logo">
+              <div class="logo-icone">📚</div>
+              <span class="logo-texte">Cahier<span>Smart</span></span>
+            </a>
+            <p>
+              La plateforme intelligente de gestion des cahiers de texte
+              numériques.
+            </p>
+          </div>
+          <div class="footer-colonne">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="features.html">Fonctionnalités</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-colonne">
+            <h4>Fonctionnalités</h4>
+            <ul>
+              <li><a href="features.html">Gestion des cours</a></li>
+              <li><a href="features.html">Suivi des devoirs</a></li>
+              <li><a href="features.html">Notifications IA</a></li>
+            </ul>
+          </div>
+          <div class="footer-colonne">
+            <h4>Contact</h4>
+            <ul>
+              <li>
+                <a href="mailto:contact@cahiersmart.edu"
+                  >✉️ contact@cahiersmart.edu</a
+                >
+              </li>
+              <li><a href="#">📞 +221 33 000 00 00</a></li>
+              <li><a href="#">📍 Dakar, Sénégal</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bas">
+          <span
+            >© 2024 <a href="index.html">CahierSmart</a>. Tous droits
+            réservés.</span
+          >
+          <span>Fait avec ❤️ pour l'éducation africaine</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

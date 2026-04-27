@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — CahierSmart</title>
+    <meta
+      name="description"
+      content="Contactez l'équipe CahierSmart pour toute question ou demande."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- BARRE DE NAVIGATION -->
+    <nav class="navbar">
+      <div class="conteneur navbar-contenu">
+        <a href="index.html" class="logo">
+          <div class="logo-icone">📚</div>
+          <span class="logo-texte">Cahier<span>Smart</span></span>
+        </a>
+        <ul class="nav-liens" id="nav-liens">
+          <li><a href="index.html">🏠 Accueil</a></li>
+          <li><a href="about.html">ℹ️ À propos</a></li>
+          <li><a href="features.html">⚙️ Fonctionnalités</a></li>
+          <li><a href="contact.html">📞 Contact</a></li>
+        </ul>
+        <button
+          class="burger"
+          id="burger"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- EN-TÊTE DE PAGE -->
+    <header class="page-entete">
+      <div class="conteneur">
+        <div class="fil-ariane">
+          <a href="index.html">Accueil</a>
+          <span>›</span>
+          <span>Contact</span>
+        </div>
+        <div class="badge">📞 Parlons-nous</div>
+        <h1>
+          Contactez
+          <span style="color: var(--couleur-primaire)">notre équipe</span>
+        </h1>
+        <p>
+          Une question, une suggestion ou une demande de démo ? Nous répondons
+          sous 24h.
+        </p>
+      </div>
+    </header>
+
+    <!-- =============================================
+       SECTION CONTACT PRINCIPALE
+  ============================================= -->
+    <section class="contact-contenu">
+      <div class="conteneur">
+        <div class="contact-grille">
+          <!-- Informations de contact (colonne gauche) -->
+          <div class="contact-info animer">
+            <div class="badge">💬 On est là pour vous</div>
+            <h2>Toujours disponibles<br />pour vous aider</h2>
+            <p>
+              Notre équipe d'accompagnement est disponible du lundi au vendredi,
+              de 8h à 18h. Pour les urgences techniques, un support est
+              disponible 24h/24.
+            </p>
+
+            <!-- Infos de contact -->
+            <div class="info-item">
+              <div class="info-icone">✉️</div>
+              <div class="info-texte">
+                <strong>Email</strong>
+                <span>contact@cahiersmart.edu</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icone">📞</div>
+              <div class="info-texte">
+                <strong>Téléphone</strong>
+                <span>+221 33 000 00 00 (Lun-Ven, 8h-18h)</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icone">📍</div>
+              <div class="info-texte">
+                <strong>Adresse</strong>
+                <span>Cité Keur Gorgui, Dakar, Sénégal</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icone">💬</div>
+              <div class="info-texte">
+                <strong>Support en ligne</strong>
+                <span>Chat disponible 24h/24 dans l'application</span>
+              </div>
+            </div>
+
+            <!-- Bloc temps de réponse -->
+            <div
+              style="
+                background: var(--couleur-degrade-doux);
+                border-radius: 14px;
+                padding: 20px 24px;
+                border: 1px solid var(--couleur-bordure);
+                margin-top: 32px;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                  margin-bottom: 8px;
+                "
+              >
+                <span style="font-size: 1.3rem">⚡</span>
+                <strong>Temps de réponse</strong>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 8px;
+                  font-size: 0.88rem;
+                  color: var(--couleur-texte-clair);
+                "
+              >
+                <div>📧 Email : moins de 24h en jours ouvrables</div>
+                <div>📞 Téléphone : immédiat pendant les heures de bureau</div>
+                <div>💬 Chat : réponse en moins de 5 minutes</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulaire de contact (colonne droite) -->
+          <div class="animer">
+            <div class="formulaire-carte">
+              <h3>✉️ Envoyer un message</h3>
+
+              <!-- 
+              FORMULAIRE HTML
+              L'attribut id est utilisé par JavaScript pour la validation
+              action="javascript:void(0)" empêche le rechargement de page  
+            -->
+              <form id="formulaire-contact" novalidate>
+                <!-- Ligne : Nom + Prénom -->
+                <div class="deux-colonnes">
+                  <div class="groupe-champ">
+                    <label for="nom">Nom complet <span>*</span></label>
+                    <input
+                      type="text"
+                      id="nom"
+                      name="nom"
+                      class="champ-input"
+                      placeholder="Ex: Moussa Diallo"
+                      autocomplete="name"
+                    />
+                    <!-- Message d'erreur (affiché par JavaScript) -->
+                    <span class="message-erreur" id="erreur-nom"></span>
+                  </div>
+
+                  <div class="groupe-champ">
+                    <label for="email">Email <span>*</span></label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="champ-input"
+                      placeholder="vous@example.com"
+                      autocomplete="email"
+                    />
+                    <span class="message-erreur" id="erreur-email"></span>
+                  </div>
+                </div>
+
+                <!-- Champ Sujet -->
+                <div class="groupe-champ">
+                  <label for="sujet">Sujet <span>*</span></label>
+                  <input
+                    type="text"
+                    id="sujet"
+                    name="sujet"
+                    class="champ-input"
+                    placeholder="Objet de votre message"
+                  />
+                  <span class="message-erreur" id="erreur-sujet"></span>
+                </div>
+
+                <!-- Sélection du type de demande -->
+                <div class="groupe-champ">
+                  <label for="type">Type de demande</label>
+                  <select id="type" name="type" class="champ-input">
+                    <option value="">— Choisir un type —</option>
+                    <option value="demo">🖥️ Demande de démo</option>
+                    <option value="info">ℹ️ Demande d'informations</option>
+                    <option value="support">🛠️ Support technique</option>
+                    <option value="partenariat">
+                      🤝 Proposition de partenariat
+                    </option>
+                    <option value="autre">💬 Autre</option>
+                  </select>
+                </div>
+
+                <!-- Champ Message -->
+                <div class="groupe-champ">
+                  <label for="message">Message <span>*</span></label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    class="champ-input champ-textarea"
+                    placeholder="Décrivez votre demande en détail..."
+                  ></textarea>
+                  <span class="message-erreur" id="erreur-message"></span>
+                </div>
+
+                <!-- Case à cocher RGPD -->
+                <div
+                  class="groupe-champ"
+                  style="display: flex; align-items: flex-start; gap: 12px"
+                >
+                  <input
+                    type="checkbox"
+                    id="rgpd"
+                    name="rgpd"
+                    style="
+                      width: 18px;
+                      height: 18px;
+                      margin-top: 2px;
+                      cursor: pointer;
+                      accent-color: var(--couleur-primaire);
+                    "
+                  />
+                  <label
+                    for="rgpd"
+                    style="
+                      font-weight: 400;
+                      font-size: 0.85rem;
+                      color: var(--couleur-texte-clair);
+                      cursor: pointer;
+                    "
+                  >
+                    J'accepte que mes données soient utilisées pour traiter ma
+                    demande, conformément à la politique de confidentialité de
+                    CahierSmart.
+                  </label>
+                </div>
+
+                <!-- Bouton de soumission -->
+                <button
+                  type="submit"
+                  class="btn-principal"
+                  id="btn-soumettre"
+                  style="width: 100%; justify-content: center; margin-top: 8px"
+                >
+                  ✉️ Envoyer le message
+                </button>
+              </form>
+
+              <!-- 
+              MESSAGE DE SUCCÈS
+              Ce bloc est caché par défaut et affiché par JavaScript
+              quand le formulaire est validé et "envoyé"
+            -->
+              <div class="message-succes" id="message-succes">
+                <span class="icone-succes">🎉</span>
+                <div>
+                  <p><strong>Message envoyé avec succès !</strong></p>
+                  <p
+                    style="
+                      font-size: 0.85rem;
+                      color: var(--couleur-texte-clair);
+                      font-weight: 400;
+                      margin-top: 4px;
+                    "
+                  >
+                    Merci pour votre message. Notre équipe vous répondra dans
+                    les 24h.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       FAQ RAPIDE
+  ============================================= -->
+    <section style="padding: 100px 0; background: var(--couleur-degrade-doux)">
+      <div class="conteneur">
+        <div class="entete-section">
+          <div class="badge">❓ Questions fréquentes</div>
+          <h2 class="titre-section">
+            Avant de nous écrire,<br /><span
+              >peut-être votre réponse est ici</span
+            >
+          </h2>
+        </div>
+
+        <div
+          style="
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+          "
+        >
+          <!-- Question 1 -->
+          <details
+            style="
+              background: white;
+              border-radius: 14px;
+              border: 1px solid var(--couleur-bordure);
+              overflow: hidden;
+            "
+          >
+            <summary
+              style="
+                padding: 20px 24px;
+                cursor: pointer;
+                font-weight: 600;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <span>CahierSmart est-il gratuit ?</span>
+              <span style="color: var(--couleur-primaire)">+</span>
+            </summary>
+            <div
+              style="
+                padding: 0 24px 20px;
+                color: var(--couleur-texte-clair);
+                font-size: 0.92rem;
+                line-height: 1.7;
+                border-top: 1px solid var(--couleur-bordure);
+              "
+            >
+              <br />CahierSmart propose une version d'essai gratuite de 30
+              jours, sans carte bancaire requise. Après la période d'essai, des
+              plans tarifaires adaptés aux enseignants individuels, aux
+              établissements scolaires et aux réseaux d'écoles sont disponibles.
+            </div>
+          </details>
+
+          <!-- Question 2 -->
+          <details
+            style="
+              background: white;
+              border-radius: 14px;
+              border: 1px solid var(--couleur-bordure);
+              overflow: hidden;
+            "
+          >
+            <summary
+              style="
+                padding: 20px 24px;
+                cursor: pointer;
+                font-weight: 600;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <span>Comment importer mes données existantes ?</span>
+              <span style="color: var(--couleur-primaire)">+</span>
+            </summary>
+            <div
+              style="
+                padding: 0 24px 20px;
+                color: var(--couleur-texte-clair);
+                font-size: 0.92rem;
+                line-height: 1.7;
+                border-top: 1px solid var(--couleur-bordure);
+              "
+            >
+              <br />CahierSmart supporte l'importation depuis Excel, CSV et
+              d'autres formats courants. Notre assistant d'import guidé vous
+              accompagne étape par étape. Notre équipe peut également vous aider
+              pour les migrations complexes.
+            </div>
+          </details>
+
+          <!-- Question 3 -->
+          <details
+            style="
+              background: white;
+              border-radius: 14px;
+              border: 1px solid var(--couleur-bordure);
+              overflow: hidden;
+            "
+          >
+            <summary
+              style="
+                padding: 20px 24px;
+                cursor: pointer;
+                font-weight: 600;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <span>L'application fonctionne-t-elle hors ligne ?</span>
+              <span style="color: var(--couleur-primaire)">+</span>
+            </summary>
+            <div
+              style="
+                padding: 0 24px 20px;
+                color: var(--couleur-texte-clair);
+                font-size: 0.92rem;
+                line-height: 1.7;
+                border-top: 1px solid var(--couleur-bordure);
+              "
+            >
+              <br />Oui ! CahierSmart dispose d'un mode hors-ligne complet. Vos
+              données se synchronisent automatiquement dès que vous retrouvez
+              une connexion internet. C'est essentiel pour fonctionner dans des
+              zones avec une connectivité limitée.
+            </div>
+          </details>
+
+          <!-- Question 4 -->
+          <details
+            style="
+              background: white;
+              border-radius: 14px;
+              border: 1px solid var(--couleur-bordure);
+              overflow: hidden;
+            "
+          >
+            <summary
+              style="
+                padding: 20px 24px;
+                cursor: pointer;
+                font-weight: 600;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <span>Proposez-vous des formations pour les enseignants ?</span>
+              <span style="color: var(--couleur-primaire)">+</span>
+            </summary>
+            <div
+              style="
+                padding: 0 24px 20px;
+                color: var(--couleur-texte-clair);
+                font-size: 0.92rem;
+                line-height: 1.7;
+                border-top: 1px solid var(--couleur-bordure);
+              "
+            >
+              <br />Absolument ! Nous proposons des formations en ligne
+              (webinaires), des tutoriels vidéo intégrés et des sessions de
+              formation en présentiel pour les établissements qui en font la
+              demande. Le support est inclus dans tous les plans.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="conteneur">
+        <div class="footer-grille">
+          <div class="footer-marque">
+            <a href="index.html" class="footer-logo">
+              <div class="logo-icone">📚</div>
+              <span class="logo-texte">Cahier<span>Smart</span></span>
+            </a>
+            <p>
+              La plateforme intelligente de gestion des cahiers de texte
+              numériques.
+            </p>
+          </div>
+          <div class="footer-colonne">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="features.html">Fonctionnalités</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-colonne">
+            <h4>Fonctionnalités</h4>
+            <ul>
+              <li><a href="features.html">Gestion des cours</a></li>
+              <li><a href="features.html">Suivi des devoirs</a></li>
+              <li><a href="features.html">Notifications IA</a></li>
+            </ul>
+          </div>
+          <div class="footer-colonne">
+            <h4>Contact</h4>
+            <ul>
+              <li>
+                <a href="mailto:contact@cahiersmart.edu"
+                  >✉️ contact@cahiersmart.edu</a
+                >
+              </li>
+              <li><a href="#">📞 +221 33 000 00 00</a></li>
+              <li><a href="#">📍 Dakar, Sénégal</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bas">
+          <span
+            >© 2024 <a href="index.html">CahierSmart</a>. Tous droits
+            réservés.</span
+          >
+          <span>Fait avec ❤️ pour l'éducation africaine</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,513 @@
+<!Doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>À propos — CahierSmart</title>
+    <meta
+      name="description"
+      content="Découvrez le projet CahierSmart, ses objectifs et le public qu'il sert."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- BARRE DE NAVIGATION (identique sur toutes les pages) -->
+    <nav class="navbar">
+      <div class="conteneur navbar-contenu">
+        <a href="index.html" class="logo">
+          <div class="logo-icone">📚</div>
+          <span class="logo-texte">Cahier<span>Smart</span></span>
+        </a>
+        <ul class="nav-liens" id="nav-liens">
+          <li><a href="index.html">🏠 Accueil</a></li>
+          <li><a href="about.html">ℹ️ À propos</a></li>
+          <li><a href="features.html">⚙️ Fonctionnalités</a></li>
+          <li><a href="contact.html">📞 Contact</a></li>
+        </ul>
+        <button
+          class="burger"
+          id="burger"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- =============================================
+       EN-TÊTE DE PAGE
+  ============================================= -->
+    <header class="page-entete">
+      <div class="conteneur">
+        <!-- Fil d'Ariane (breadcrumb) -->
+        <div class="fil-ariane">
+          <a href="index.html">Accueil</a>
+          <span>›</span>
+          <span>À propos</span>
+        </div>
+        <div class="badge">ℹ️ Notre histoire</div>
+        <h1>
+          À propos de
+          <span style="color: var(--couleur-primaire)">CahierSmart</span>
+        </h1>
+        <p>
+          Un projet né d'un besoin réel, conçu par et pour les acteurs de
+          l'éducation.
+        </p>
+      </div>
+    </header>
+
+    <!-- =============================================
+       SECTION PRINCIPALE : PRÉSENTATION DU PROJET
+  ============================================= -->
+    <section class="a-propos-contenu">
+      <div class="conteneur">
+        <div class="a-propos-grille">
+          <!-- Texte de présentation -->
+          <div class="a-propos-texte animer">
+            <div class="badge">📖 Le projet</div>
+            <h2>
+              Un système conçu pour<br /><span
+                style="color: var(--couleur-primaire)"
+                >simplifier l'éducation</span
+              >
+            </h2>
+
+            <p>
+              CahierSmart est né d'une observation simple : les enseignants
+              passent en moyenne
+              <strong>3 heures par semaine</strong> sur des tâches
+              administratives répétitives — saisie de cours, suivi des devoirs,
+              rédaction de rapports. C'est 3 heures qui pourraient être
+              consacrées à enseigner.
+            </p>
+
+            <p>
+              Notre équipe de développeurs et d'anciens enseignants a donc créé
+              un outil intelligent qui automatise ces processus. Grâce à
+              l'intelligence artificielle intégrée, CahierSmart apprend de vos
+              habitudes et anticipe vos besoins.
+            </p>
+
+            <p>
+              Aujourd'hui, plus de 2 500 enseignants dans 12 établissements font
+              confiance à CahierSmart pour gérer leurs cahiers de texte
+              numériques. Nous travaillons chaque jour pour améliorer
+              l'expérience et ajouter de nouvelles fonctionnalités.
+            </p>
+
+            <a href="contact.html" class="btn-principal"
+              >Rejoindre la communauté →</a
+            >
+          </div>
+
+          <!-- Image illustrative -->
+          <div class="image-wrapper animer">
+            <div class="image-illustrative">
+              <!-- Illustration stylisée représentant l'application -->
+              <span style="font-size: 4rem; position: relative; z-index: 1"
+                >📚</span
+              >
+              <span
+                style="
+                  font-size: 1.2rem;
+                  font-weight: 700;
+                  position: relative;
+                  z-index: 1;
+                  margin-top: 12px;
+                  font-family: var(--police-titre);
+                "
+                >CahierSmart</span
+              >
+              <span
+                style="
+                  font-size: 0.9rem;
+                  opacity: 0.85;
+                  position: relative;
+                  z-index: 1;
+                "
+                >L'éducation intelligente</span
+              >
+            </div>
+            <!-- Badge superposé sur l'image -->
+            <div class="image-badge">
+              <strong>3h</strong>
+              <small>Économisées / semaine</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       SECTION OBJECTIFS
+  ============================================= -->
+    <section class="objectifs">
+      <div class="conteneur">
+        <div class="entete-section">
+          <div class="badge">🎯 Nos objectifs</div>
+          <h2 class="titre-section">
+            Ce que nous voulons<br /><span>accomplir</span>
+          </h2>
+          <p class="sous-titre-section">
+            Chaque fonctionnalité de CahierSmart est guidée par des objectifs
+            clairs au service de l'éducation.
+          </p>
+        </div>
+
+        <div class="objectifs-grille">
+          <div class="carte-objectif animer">
+            <div class="objectif-icone">⚡</div>
+            <h3>Automatiser les tâches</h3>
+            <p>
+              Éliminer les tâches répétitives et chronophages pour redonner aux
+              enseignants du temps de qualité avec leurs élèves.
+            </p>
+          </div>
+
+          <div class="carte-objectif animer">
+            <div class="objectif-icone">📈</div>
+            <h3>Améliorer le suivi</h3>
+            <p>
+              Offrir une vision complète et en temps réel de la progression de
+              chaque élève grâce à des tableaux de bord intuitifs.
+            </p>
+          </div>
+
+          <div class="carte-objectif animer">
+            <div class="objectif-icone">🤝</div>
+            <h3>Renforcer la communication</h3>
+            <p>
+              Créer un canal de communication fluide entre enseignants, élèves
+              et administration de l'établissement.
+            </p>
+          </div>
+
+          <div class="carte-objectif animer">
+            <div class="objectif-icone">🌐</div>
+            <h3>Digitaliser l'éducation</h3>
+            <p>
+              Contribuer à la transformation numérique des établissements
+              scolaires africains avec des outils adaptés à leur réalité.
+            </p>
+          </div>
+
+          <div class="carte-objectif animer">
+            <div class="objectif-icone">🔬</div>
+            <h3>Innover en continu</h3>
+            <p>
+              Intégrer les dernières avancées de l'IA et du Machine Learning
+              pour proposer toujours de meilleures suggestions.
+            </p>
+          </div>
+
+          <div class="carte-objectif animer">
+            <div class="objectif-icone">🌱</div>
+            <h3>Grandir ensemble</h3>
+            <p>
+              Bâtir une communauté d'éducateurs qui partagent, apprennent et
+              s'améliorent collectivement grâce à la plateforme.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       SECTION PUBLIC CIBLE
+  ============================================= -->
+    <section class="public-cible">
+      <div class="conteneur">
+        <div class="entete-section">
+          <div class="badge">👥 Public cible</div>
+          <h2 class="titre-section">
+            Fait pour <span>vous</span>, où que vous soyez
+          </h2>
+          <p class="sous-titre-section">
+            CahierSmart s'adapte aux besoins de chaque acteur de l'écosystème
+            éducatif.
+          </p>
+        </div>
+
+        <div class="public-grille">
+          <!-- Carte Enseignants -->
+          <div class="carte-public bleu animer">
+            <span class="public-emoji">👩‍🏫</span>
+            <h3>Les Enseignants</h3>
+            <p>
+              Gérez votre cahier de texte numérique en quelques clics. Planifiez
+              vos cours, suivez vos élèves, générez des rapports automatiques et
+              recevez des suggestions intelligentes pour améliorer votre
+              enseignement.
+            </p>
+            <br />
+            <small style="color: #2563eb; font-weight: 600">
+              ✓ Saisie rapide · ✓ Rapports auto · ✓ Suggestions IA
+            </small>
+          </div>
+
+          <!-- Carte Étudiants -->
+          <div class="carte-public violet animer">
+            <span class="public-emoji">🎓</span>
+            <h3>Les Étudiants</h3>
+            <p>
+              Consultez votre emploi du temps, visualisez les devoirs à venir,
+              recevez des notifications avant les échéances importantes et
+              suivez votre progression au fil des semaines avec des graphiques
+              clairs.
+            </p>
+            <br />
+            <small style="color: #7c3aed; font-weight: 600">
+              ✓ Emploi du temps · ✓ Rappels devoirs · ✓ Suivi progression
+            </small>
+          </div>
+
+          <!-- Carte Établissements -->
+          <div class="carte-public vert animer">
+            <span class="public-emoji">🏫</span>
+            <h3>Les Établissements</h3>
+            <p>
+              Supervisez l'ensemble de votre établissement depuis un tableau de
+              bord centralisé. Accédez aux statistiques globales, vérifiez la
+              conformité des cahiers de texte et facilitez la communication
+              institutionnelle.
+            </p>
+            <br />
+            <small style="color: #16a34a; font-weight: 600">
+              ✓ Supervision globale · ✓ Conformité · ✓ Statistiques
+            </small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       SECTION ÉQUIPE / VALEURS
+  ============================================= -->
+    <section style="padding: 100px 0; background: var(--couleur-degrade-doux)">
+      <div class="conteneur">
+        <div class="entete-section">
+          <div class="badge">💎 Nos valeurs</div>
+          <h2 class="titre-section">
+            Ce en quoi<br /><span>nous croyons</span>
+          </h2>
+        </div>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+          "
+        >
+          <div
+            class="animer"
+            style="
+              text-align: center;
+              padding: 28px 20px;
+              background: white;
+              border-radius: 16px;
+              border: 1px solid var(--couleur-bordure);
+            "
+          >
+            <div style="font-size: 2rem; margin-bottom: 12px">🎓</div>
+            <h4
+              style="
+                font-family: var(--police-titre);
+                font-weight: 700;
+                margin-bottom: 8px;
+              "
+            >
+              Excellence
+            </h4>
+            <p style="font-size: 0.85rem; color: var(--couleur-texte-clair)">
+              Nous visons l'excellence dans chaque ligne de code et chaque
+              décision de design.
+            </p>
+          </div>
+          <div
+            class="animer"
+            style="
+              text-align: center;
+              padding: 28px 20px;
+              background: white;
+              border-radius: 16px;
+              border: 1px solid var(--couleur-bordure);
+            "
+          >
+            <div style="font-size: 2rem; margin-bottom: 12px">🌍</div>
+            <h4
+              style="
+                font-family: var(--police-titre);
+                font-weight: 700;
+                margin-bottom: 8px;
+              "
+            >
+              Impact local
+            </h4>
+            <p style="font-size: 0.85rem; color: var(--couleur-texte-clair)">
+              Conçu pour les réalités africaines, avec des outils accessibles
+              même hors-ligne.
+            </p>
+          </div>
+          <div
+            class="animer"
+            style="
+              text-align: center;
+              padding: 28px 20px;
+              background: white;
+              border-radius: 16px;
+              border: 1px solid var(--couleur-bordure);
+            "
+          >
+            <div style="font-size: 2rem; margin-bottom: 12px">🔓</div>
+            <h4
+              style="
+                font-family: var(--police-titre);
+                font-weight: 700;
+                margin-bottom: 8px;
+              "
+            >
+              Accessibilité
+            </h4>
+            <p style="font-size: 0.85rem; color: var(--couleur-texte-clair)">
+              Un outil simple à utiliser, même pour ceux qui ne sont pas à
+              l'aise avec la technologie.
+            </p>
+          </div>
+          <div
+            class="animer"
+            style="
+              text-align: center;
+              padding: 28px 20px;
+              background: white;
+              border-radius: 16px;
+              border: 1px solid var(--couleur-bordure);
+            "
+          >
+            <div style="font-size: 2rem; margin-bottom: 12px">🤝</div>
+            <h4
+              style="
+                font-family: var(--police-titre);
+                font-weight: 700;
+                margin-bottom: 8px;
+              "
+            >
+              Collaboration
+            </h4>
+            <p style="font-size: 0.85rem; color: var(--couleur-texte-clair)">
+              Nous co-construisons notre produit avec les enseignants et
+              directeurs d'école.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section
+      style="
+        background: var(--couleur-degrade);
+        padding: 80px 0;
+        text-align: center;
+      "
+    >
+      <div class="conteneur">
+        <h2
+          style="
+            font-family: var(--police-titre);
+            font-size: 2rem;
+            color: white;
+            font-weight: 800;
+            margin-bottom: 16px;
+          "
+        >
+          Vous avez des questions sur le projet ?
+        </h2>
+        <p style="color: rgba(255, 255, 255, 0.85); margin-bottom: 32px">
+          Notre équipe est disponible pour répondre à toutes vos questions.
+        </p>
+        <a
+          href="contact.html"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: var(--couleur-primaire);
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+          "
+        >
+          📞 Contactez-nous
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="conteneur">
+        <div class="footer-grille">
+          <div class="footer-marque">
+            <a href="index.html" class="footer-logo">
+              <div class="logo-icone">📚</div>
+              <span class="logo-texte">Cahier<span>Smart</span></span>
+            </a>
+            <p>
+              La plateforme intelligente de gestion des cahiers de texte
+              numériques.
+            </p>
+          </div>
+          <div class="footer-colonne">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="features.html">Fonctionnalités</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-colonne">
+            <h4>Fonctionnalités</h4>
+            <ul>
+              <li><a href="features.html">Gestion des cours</a></li>
+              <li><a href="features.html">Suivi des devoirs</a></li>
+              <li><a href="features.html">Notifications IA</a></li>
+              <li><a href="features.html">Tableau de bord</a></li>
+            </ul>
+          </div>
+          <div class="footer-colonne">
+            <h4>Contact</h4>
+            <ul>
+              <li>
+                <a href="mailto:contact@cahiersmart.edu"
+                  >✉️ contact@cahiersmart.edu</a
+                >
+              </li>
+              <li><a href="#">📞 +221 33 000 00 00</a></li>
+              <li><a href="#">📍 Dakar, Sénégal</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bas">
+          <span
+            >© 2024 <a href="index.html">CahierSmart</a>. Tous droits
+            réservés.</span
+          >
+          <span>Fait avec ❤️ pour l'éducation africaine</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
