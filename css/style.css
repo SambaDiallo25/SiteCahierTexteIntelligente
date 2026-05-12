@@ -1,0 +1,1469 @@
+/* ============================================================
+   STYLE.CSS — Feuille de style principale
+   Projet : Système de Gestion des Cahiers de Texte Intelligent
+   ============================================================ */
+
+/* === 1. VARIABLES CSS (couleurs, polices, espacements) === */
+:root {
+  --couleur-primaire: #2563eb; /* Bleu principal */
+  --couleur-secondaire: #7c3aed; /* Violet accent */
+  --couleur-degrade: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  --couleur-degrade-doux: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+  --couleur-texte: #1e293b; /* Texte foncé */
+  --couleur-texte-clair: #64748b; /* Texte secondaire */
+  --couleur-fond: #f8fafc; /* Fond de page */
+  --couleur-blanc: #ffffff;
+  --couleur-carte: #ffffff;
+  --couleur-bordure: #e2e8f0;
+  --ombre-legere: 0 2px 10px rgba(37, 99, 235, 0.08);
+  --ombre-medium: 0 8px 30px rgba(37, 99, 235, 0.15);
+  --ombre-forte: 0 20px 60px rgba(37, 99, 235, 0.2);
+  --rayon-carte: 16px;
+  --rayon-bouton: 50px;
+  --transition: all 0.3s ease;
+  --police-titre: "Sora", sans-serif;
+  --police-corps: "DM Sans", sans-serif;
+}
+
+/* === 2. RESET ET BASE === */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* Défilement doux pour les ancres */
+}
+
+body {
+  font-family: var(--police-corps);
+  background-color: var(--couleur-fond);
+  color: var(--couleur-texte);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Import des polices Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap");
+
+/* === 3. UTILITAIRES GÉNÉRAUX === */
+.conteneur {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Bouton principal avec dégradé */
+.btn-principal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--couleur-degrade);
+  color: var(--couleur-blanc);
+  padding: 14px 32px;
+  border-radius: var(--rayon-bouton);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+}
+
+.btn-principal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.45);
+}
+
+/* Bouton secondaire (contour) */
+.btn-secondaire {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--couleur-primaire);
+  padding: 13px 30px;
+  border-radius: var(--rayon-bouton);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid var(--couleur-primaire);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-secondaire:hover {
+  background: var(--couleur-primaire);
+  color: var(--couleur-blanc);
+  transform: translateY(-2px);
+}
+
+/* Badge décoratif */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--couleur-primaire);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+/* Titre de section */
+.titre-section {
+  font-family: var(--police-titre);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--couleur-texte);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.titre-section span {
+  background: var(--couleur-degrade);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sous-titre-section {
+  font-size: 1.05rem;
+  color: var(--couleur-texte-clair);
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+
+.entete-section {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+/* === 4. BARRE DE NAVIGATION === */
+.navbar {
+  position: fixed; /* Reste en haut lors du défilement */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 16px 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px); /* Effet verre dépoli */
+  border-bottom: 1px solid var(--couleur-bordure);
+  transition: var(--transition);
+}
+
+/* La navbar change d'apparence quand on défile */
+.navbar.defilée {
+  padding: 12px 0;
+  box-shadow: var(--ombre-legere);
+}
+
+.navbar-contenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo de la navbar */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-icone {
+  width: 40px;
+  height: 40px;
+  background: var(--couleur-degrade);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.logo-texte {
+  font-family: var(--police-titre);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--couleur-texte);
+}
+
+.logo-texte span {
+  color: var(--couleur-primaire);
+}
+
+/* Liens de navigation */
+.nav-liens {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 8px;
+}
+
+.nav-liens a {
+  text-decoration: none;
+  color: var(--couleur-texte-clair);
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: var(--transition);
+  font-size: 0.95rem;
+}
+
+.nav-liens a:hover,
+.nav-liens a.actif {
+  color: var(--couleur-primaire);
+  background: rgba(37, 99, 235, 0.08);
+}
+
+/* Bouton burger (menu mobile) */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--couleur-texte);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* Animation du burger quand le menu est ouvert */
+.burger.ouvert span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.burger.ouvert span:nth-child(2) {
+  opacity: 0;
+}
+.burger.ouvert span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* === 5. SECTION HERO (Page d'accueil) === */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 80px;
+  background: var(--couleur-degrade-doux);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cercles décoratifs en arrière-plan */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.08) 0%,
+    transparent 70%
+  );
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(124, 58, 237, 0.08) 0%,
+    transparent 70%
+  );
+}
+
+.hero-contenu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-texte h1 {
+  font-family: var(--police-titre);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.hero-texte h1 span {
+  background: var(--couleur-degrade);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-texte p {
+  font-size: 1.1rem;
+  color: var(--couleur-texte-clair);
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+
+/* Groupe de boutons côte à côte */
+.hero-boutons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Stats sous le hero */
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--couleur-bordure);
+}
+
+.stat-item strong {
+  display: block;
+  font-family: var(--police-titre);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--couleur-primaire);
+}
+
+.stat-item span {
+  font-size: 0.85rem;
+  color: var(--couleur-texte-clair);
+}
+
+/* Illustration du hero (mockup animé) */
+.hero-visuel {
+  position: relative;
+}
+
+.mockup-app {
+  background: var(--couleur-blanc);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--ombre-forte);
+  position: relative;
+  animation: flottement 4s ease-in-out infinite; /* Animation de flottement */
+}
+
+/* Animation flottement */
+@keyframes flottement {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.mockup-entete {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.mockup-point {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.mockup-point:nth-child(1) {
+  background: #ff5f57;
+}
+.mockup-point:nth-child(2) {
+  background: #ffbd2e;
+}
+.mockup-point:nth-child(3) {
+  background: #28ca41;
+}
+
+.mockup-titre {
+  margin-left: auto;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--couleur-texte-clair);
+}
+
+/* Items de cours dans le mockup */
+.cours-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: var(--transition);
+}
+
+.cours-item:hover {
+  background: var(--couleur-fond);
+}
+
+.cours-icone {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.cours-info strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.cours-info small {
+  color: var(--couleur-texte-clair);
+  font-size: 0.78rem;
+}
+
+.cours-statut {
+  margin-left: auto;
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 0.73rem;
+  font-weight: 600;
+}
+
+.statut-fait {
+  background: #dcfce7;
+  color: #16a34a;
+}
+.statut-cours {
+  background: #dbeafe;
+  color: #2563eb;
+}
+.statut-attente {
+  background: #fef9c3;
+  color: #ca8a04;
+}
+
+/* Badge IA dans le mockup */
+.badge-ia {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--couleur-degrade);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  margin-top: 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* === 6. SECTION PRÉSENTATION RAPIDE === */
+.presentation {
+  padding: 100px 0;
+  background: var(--couleur-blanc);
+}
+
+.presentation-grille {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.presentation-texte h2 {
+  font-family: var(--police-titre);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.presentation-texte p {
+  color: var(--couleur-texte-clair);
+  margin-bottom: 24px;
+  font-size: 1rem;
+}
+
+/* Liste avec icônes de check */
+.liste-atouts {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.liste-atouts li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+}
+
+.liste-atouts li::before {
+  content: "✓";
+  width: 24px;
+  height: 24px;
+  background: var(--couleur-degrade);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Cartes de statistiques */
+.stats-visuelles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.stat-carte {
+  background: var(--couleur-fond);
+  border-radius: var(--rayon-carte);
+  padding: 28px 24px;
+  text-align: center;
+  border: 1px solid var(--couleur-bordure);
+  transition: var(--transition);
+}
+
+.stat-carte:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--ombre-medium);
+  border-color: var(--couleur-primaire);
+}
+
+.stat-carte .chiffre {
+  font-family: var(--police-titre);
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: var(--couleur-degrade);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-carte .label {
+  font-size: 0.85rem;
+  color: var(--couleur-texte-clair);
+  margin-top: 4px;
+}
+
+/* === 7. SECTION AVANTAGES === */
+.avantages {
+  padding: 100px 0;
+  background: var(--couleur-degrade-doux);
+}
+
+.avantages-grille {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* Carte d'avantage */
+.carte-avantage {
+  background: var(--couleur-blanc);
+  border-radius: var(--rayon-carte);
+  padding: 36px 28px;
+  border: 1px solid var(--couleur-bordure);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.carte-avantage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--couleur-degrade);
+  transform: scaleX(0); /* Cache la barre au départ */
+  transition: var(--transition);
+}
+
+.carte-avantage:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--ombre-forte);
+  border-color: transparent;
+}
+
+.carte-avantage:hover::before {
+  transform: scaleX(1); /* Révèle la barre au survol */
+}
+
+.avantage-icone {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: var(--couleur-degrade-doux);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.carte-avantage h3 {
+  font-family: var(--police-titre);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.carte-avantage p {
+  font-size: 0.9rem;
+  color: var(--couleur-texte-clair);
+  line-height: 1.7;
+}
+
+/* === 8. FOOTER === */
+.footer {
+  background: #0f172a; /* Fond sombre */
+  color: #94a3b8;
+  padding: 60px 0 30px;
+}
+
+.footer-grille {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.footer-marque p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-top: 12px;
+  max-width: 280px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.footer-logo .logo-icone {
+  background: var(--couleur-degrade);
+}
+
+.footer-logo .logo-texte {
+  color: white;
+}
+
+.footer-colonne h4 {
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.footer-colonne ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-colonne ul a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: var(--transition);
+}
+
+.footer-colonne ul a:hover {
+  color: white;
+}
+
+.footer-bas {
+  border-top: 1px solid #1e293b;
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.footer-bas a {
+  color: var(--couleur-primaire);
+  text-decoration: none;
+}
+
+/* === 9. PAGE À PROPOS === */
+.page-entete {
+  padding: 140px 0 80px;
+  background: var(--couleur-degrade-doux);
+  text-align: center;
+}
+
+.page-entete h1 {
+  font-family: var(--police-titre);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.page-entete p {
+  font-size: 1.1rem;
+  color: var(--couleur-texte-clair);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Breadcrumb de navigation */
+.fil-ariane {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 0.88rem;
+}
+
+.fil-ariane a {
+  color: var(--couleur-primaire);
+  text-decoration: none;
+}
+
+.fil-ariane span {
+  color: var(--couleur-texte-clair);
+}
+
+/* Section à propos principale */
+.a-propos-contenu {
+  padding: 100px 0;
+  background: var(--couleur-blanc);
+}
+
+.a-propos-grille {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.a-propos-texte h2 {
+  font-family: var(--police-titre);
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.a-propos-texte p {
+  color: var(--couleur-texte-clair);
+  margin-bottom: 16px;
+  line-height: 1.8;
+}
+
+/* Image illustrative avec décoration */
+.image-wrapper {
+  position: relative;
+}
+
+.image-illustrative {
+  width: 100%;
+  border-radius: 20px;
+  background: var(--couleur-degrade);
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--ombre-forte);
+}
+
+.image-illustrative::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.image-badge {
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  background: var(--couleur-blanc);
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: var(--ombre-medium);
+  text-align: center;
+}
+
+.image-badge strong {
+  display: block;
+  font-family: var(--police-titre);
+  font-size: 1.4rem;
+  color: var(--couleur-primaire);
+  font-weight: 800;
+}
+
+.image-badge small {
+  font-size: 0.75rem;
+  color: var(--couleur-texte-clair);
+}
+
+/* Objectifs */
+.objectifs {
+  padding: 100px 0;
+  background: var(--couleur-degrade-doux);
+}
+
+.objectifs-grille {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.carte-objectif {
+  background: var(--couleur-blanc);
+  border-radius: var(--rayon-carte);
+  padding: 32px 24px;
+  border: 1px solid var(--couleur-bordure);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.carte-objectif:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--ombre-medium);
+}
+
+.objectif-icone {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--couleur-degrade);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto 20px;
+  color: white;
+}
+
+.carte-objectif h3 {
+  font-family: var(--police-titre);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.carte-objectif p {
+  font-size: 0.88rem;
+  color: var(--couleur-texte-clair);
+  line-height: 1.7;
+}
+
+/* Public cible */
+.public-cible {
+  padding: 100px 0;
+  background: var(--couleur-blanc);
+}
+
+.public-grille {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.carte-public {
+  border-radius: var(--rayon-carte);
+  padding: 36px 28px;
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.carte-public.bleu {
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border: 1px solid #bfdbfe;
+}
+.carte-public.violet {
+  background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+  border: 1px solid #ddd6fe;
+}
+.carte-public.vert {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border: 1px solid #bbf7d0;
+}
+
+.carte-public:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--ombre-forte);
+}
+
+.public-emoji {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.carte-public h3 {
+  font-family: var(--police-titre);
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.carte-public p {
+  font-size: 0.88rem;
+  color: var(--couleur-texte-clair);
+  line-height: 1.7;
+}
+
+/* === 10. PAGE FONCTIONNALITÉS === */
+.filtres-fonctionnalites {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.btn-filtre {
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 2px solid var(--couleur-bordure);
+  background: var(--couleur-blanc);
+  color: var(--couleur-texte-clair);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.9rem;
+  font-family: var(--police-corps);
+}
+
+.btn-filtre:hover,
+.btn-filtre.actif {
+  border-color: var(--couleur-primaire);
+  background: var(--couleur-primaire);
+  color: var(--couleur-blanc);
+}
+
+.fonctionnalites-grille {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* Carte de fonctionnalité grande */
+.carte-fonctionnalite {
+  background: var(--couleur-blanc);
+  border-radius: var(--rayon-carte);
+  padding: 36px 28px;
+  border: 1px solid var(--couleur-bordure);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.carte-fonctionnalite:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--ombre-forte);
+  border-color: var(--couleur-primaire);
+}
+
+/* Carte en vedette (highlight) */
+.carte-fonctionnalite.vedette {
+  background: var(--couleur-degrade);
+  color: white;
+  border-color: transparent;
+  grid-column: span 2; /* Prend 2 colonnes */
+}
+
+.carte-fonctionnalite.vedette .fonctionnalite-icone {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.carte-fonctionnalite.vedette p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.carte-fonctionnalite.vedette h3 {
+  color: white;
+}
+
+.fonctionnalite-icone {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--couleur-degrade-doux);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.carte-fonctionnalite h3 {
+  font-family: var(--police-titre);
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.carte-fonctionnalite p {
+  font-size: 0.88rem;
+  color: var(--couleur-texte-clair);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.tag-categorie {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--couleur-primaire);
+}
+
+.carte-fonctionnalite.vedette .tag-categorie {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Section démo interactive */
+.demo-interactive {
+  padding: 100px 0;
+  background: var(--couleur-degrade-doux);
+}
+
+.demo-tableau {
+  background: var(--couleur-blanc);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: var(--ombre-medium);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.demo-onglets {
+  display: flex;
+  gap: 4px;
+  background: var(--couleur-fond);
+  padding: 6px;
+  border-radius: 12px;
+  margin-bottom: 28px;
+}
+
+.onglet-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--police-corps);
+  font-size: 0.9rem;
+  color: var(--couleur-texte-clair);
+}
+
+.onglet-btn.actif {
+  background: var(--couleur-blanc);
+  color: var(--couleur-primaire);
+  box-shadow: var(--ombre-legere);
+}
+
+.contenu-onglet {
+  display: none;
+}
+
+.contenu-onglet.actif {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Élément de liste dans la démo */
+.demo-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: var(--couleur-fond);
+  transition: var(--transition);
+}
+
+.demo-item:hover {
+  background: #eff6ff;
+}
+
+.demo-item-icone {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+/* === 11. PAGE CONTACT === */
+.contact-contenu {
+  padding: 100px 0;
+  background: var(--couleur-blanc);
+}
+
+.contact-grille {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-info h2 {
+  font-family: var(--police-titre);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.contact-info p {
+  color: var(--couleur-texte-clair);
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.info-icone {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--couleur-degrade-doux);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.info-texte strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.info-texte span {
+  font-size: 0.88rem;
+  color: var(--couleur-texte-clair);
+}
+
+/* Formulaire de contact */
+.formulaire-carte {
+  background: var(--couleur-fond);
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid var(--couleur-bordure);
+}
+
+.formulaire-carte h3 {
+  font-family: var(--police-titre);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.groupe-champ {
+  margin-bottom: 20px;
+}
+
+.groupe-champ label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-bottom: 8px;
+  color: var(--couleur-texte);
+}
+
+.groupe-champ label span {
+  color: #ef4444;
+  margin-left: 3px;
+}
+
+.champ-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--couleur-bordure);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: var(--police-corps);
+  background: var(--couleur-blanc);
+  color: var(--couleur-texte);
+  transition: var(--transition);
+  outline: none;
+}
+
+.champ-input:focus {
+  border-color: var(--couleur-primaire);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Erreur de validation */
+.champ-input.erreur {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.message-erreur {
+  display: none;
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 6px;
+}
+
+.message-erreur.visible {
+  display: block;
+}
+
+.champ-textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* Double colonne dans le form */
+.deux-colonnes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Message de succès */
+.message-succes {
+  display: none;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.message-succes.visible {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.message-succes .icone-succes {
+  font-size: 1.5rem;
+}
+
+.message-succes p {
+  color: #16a34a;
+  font-weight: 500;
+}
+
+/* === 12. ANIMATIONS D'APPARITION AU SCROLL === */
+/* Les éléments commencent invisibles et montent */
+.animer {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.animer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Délais en cascade pour les grilles */
+.animer:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.animer:nth-child(3) {
+  transition-delay: 0.2s;
+}
+.animer:nth-child(4) {
+  transition-delay: 0.3s;
+}
+.animer:nth-child(5) {
+  transition-delay: 0.4s;
+}
+.animer:nth-child(6) {
+  transition-delay: 0.5s;
+}
+
+/* === 13. DESIGN RESPONSIVE === */
+/* Tablette (768px - 1024px) */
+@media (max-width: 1024px) {
+  .hero-contenu {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .hero-visuel {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .presentation-grille {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .a-propos-grille {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .contact-grille {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .avantages-grille {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .objectifs-grille {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .public-grille {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fonctionnalites-grille {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .carte-fonctionnalite.vedette {
+    grid-column: span 1;
+  }
+  .footer-grille {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+/* Mobile (moins de 768px) */
+@media (max-width: 768px) {
+  /* Afficher le burger, cacher le menu */
+  .burger {
+    display: flex;
+  }
+
+  .nav-liens {
+    display: none;
+    position: fixed;
+    top: 73px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    gap: 4px;
+    box-shadow: var(--ombre-medium);
+    border-bottom: 1px solid var(--couleur-bordure);
+  }
+
+  .nav-liens.ouvert {
+    display: flex;
+  }
+  .nav-liens a {
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .hero-boutons {
+    flex-direction: column;
+  }
+  .hero-boutons a {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .avantages-grille,
+  .objectifs-grille,
+  .public-grille,
+  .fonctionnalites-grille {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-visuelles {
+    grid-template-columns: 1fr 1fr;
+  }
+  .deux-colonnes {
+    grid-template-columns: 1fr;
+  }
+  .footer-grille {
+    grid-template-columns: 1fr;
+  }
+  .footer-bas {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  .formulaire-carte {
+    padding: 24px;
+  }
+}
